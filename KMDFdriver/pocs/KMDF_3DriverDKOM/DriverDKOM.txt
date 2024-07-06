@@ -1,0 +1,14 @@
+Build the Solutions:
+    Build -> Build Solution
+
+Open DebugView as an Administrator:
+    Enable options ("Capture -> Capture Kernel" and "Capture -> Enable Verbose Kernel Output")
+
+Open PowerShell as an Administrator and run the following commands to install the driver:
+    .\sc.exe stop KMDF3DriverDKOM
+    .\sc.exe delete KMDF3DriverDKOM
+    .\sc.exe create KMDF3DriverDKOM type=kernel start=demand binpath="C:\Users\user1\Source\Repos\KMDF3DriverDKOM\x64\Debug\KMDF3DriverDKOM.sys"
+    .\sc.exe start KMDF3DriverDKOM
+
+Observe Messages in DebugView :
+    Monitor the output in DebugView for any driver messages.

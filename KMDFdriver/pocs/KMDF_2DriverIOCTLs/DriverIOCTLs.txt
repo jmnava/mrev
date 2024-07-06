@@ -1,0 +1,14 @@
+Build the Solutions:
+    Build -> Build Solution
+
+Open DebugView as an Administrator:
+    Enable options ("Capture -> Capture Kernel" and "Capture -> Enable Verbose Kernel Output")
+
+Open PowerShell as an Administrator and run the following commands to install the driver:
+    .\sc.exe stop KMDF2DriverIOCTLs
+    .\sc.exe delete KMDF2DriverIOCTLs
+    .\sc.exe create KMDF2DriverIOCTLs type=kernel start=demand binpath="C:\Users\user1\Source\Repos\KMDF2DriverIOCTLs\x64\Debug\KMDF2DriverIOCTLs.sys"
+    .\sc.exe start KMDF2DriverIOCTLs
+
+Observe Messages in DebugView :
+    Monitor the output in DebugView for any driver messages.

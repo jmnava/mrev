@@ -1,0 +1,2 @@
+Open PowerShell and run the following command to execute the application and communicate with the driver:
+    .\ApplicationIOCTLs.exe

@@ -1,0 +1,14 @@
+Build the Solution:
+    Build -> Build Solution
+
+Open DebugView as an Administrator:
+    Enable options ("Capture -> Capture Kernel" and "Capture -> Enable Verbose Kernel Output")
+
+Open PowerShell as an Administrator and run the following commands to install the driver:
+    .\sc.exe stop KMDF1DriverHelloWorld
+    .\sc.exe delete KMDF1DriverHelloWorld
+    .\sc.exe create KMDF1DriverHelloWorld type=kernel start=demand binpath="C:\Users\user1\Source\Repos\KMDF1DriverHelloWorld\x64\Debug\KMDF1DriverHelloWorld.sys"
+    .\sc.exe start KMDF1DriverHelloWorld
+
+Observe Messages in DebugView:
+    Monitor the output in DebugView for any driver messages.
